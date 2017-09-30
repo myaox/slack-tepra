@@ -12,7 +12,12 @@ Hello World
 ```
 というラベルが印刷されます。
 
-その他にも多くの機能が用意されていますので詳しくは [**2. 使い方**](Usage.md) をご覧ください。
+その他にも多くの機能が用意されていますので、詳しくは [**2. 使い方**](Usage.md) をご覧ください。
 
 ### 概要
 
+
+### 作った人
+
+* Twitter : [@MYAOX3](https://twitter.com/MYAOX3)  
+* Github  : [myaox](https://github.com/myaox)
