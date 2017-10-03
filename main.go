@@ -23,7 +23,8 @@ Loop:
 			case *slack.TeamJoinEvent:
 				//
 			case *slack.MessageEvent:
-				//
+				evalComment(rtm, ev)
+
 			case *slack.ReactionAddedEvent:
 				//
 			case *slack.ReactionRemovedEvent:
