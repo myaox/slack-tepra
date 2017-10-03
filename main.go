@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/nlopes/slack"
@@ -25,12 +26,16 @@ Loop:
 				//
 			case *slack.ReactionAddedEvent:
 				//
-			case *slack.RTMError:
+			case *slack.ReactionRemovedEvent:
 				//
-
+			case *slack.RTMError:
+				fmt.Println("Err:%s\n", ev.Error())
+				break Loop
+			case *slack.InvalidAuthEvent:
+				fmt.Println("Invalid credentials")
+				break Loop
 			default:
 			}
 		}
-
 	}
 }

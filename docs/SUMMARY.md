@@ -7,4 +7,5 @@
 * [2. 使い方](Usage.md)
   * [2.1. 文字列を印刷](PrintString.md)
   * [2.2. QRコードを印刷](QRCode.md)
-* [3. おまけ](Extra.md)
+* [3. 参考](Reference.md)
+* [4. おまけ](Extra.md)
