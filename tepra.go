@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/nlopes/slack"
@@ -28,5 +27,6 @@ func evalComment(rtm *slack.RTM, ev *slack.MessageEvent) {
 		// TODO : make error message
 		return
 	}
-	fmt.Println(cmd)
+
+	cmd.run(rtm, ev)
 }

@@ -31,12 +31,14 @@ Loop:
 		select {
 		case msg := <-rtm.IncomingEvents:
 			switch ev := msg.Data.(type) {
+			case *slack.HelloEvent:
+				//
 			case *slack.ConnectedEvent:
 				//
 			case *slack.TeamJoinEvent:
 				//
 			case *slack.MessageEvent:
-				evalComment(rtm, ev)
+				go evalComment(rtm, ev)
 
 			case *slack.ReactionAddedEvent:
 				//

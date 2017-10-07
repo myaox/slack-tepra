@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"github.com/nlopes/slack"
+)
 
 type command interface {
-	run()
+	run(*slack.RTM, *slack.MessageEvent)
 }
 
 type cmdInfo struct {
@@ -39,8 +41,8 @@ func (o *optionCmd) getDetail() string {
 
 type printCmd tepraCmd
 
-func (p *printCmd) run() {
-	fmt.Println("running print")
+func (p *printCmd) run(rtm *slack.RTM, ev *slack.MessageEvent) {
+	reply(rtm, ev, p.getHelp())
 }
 
 func init() {
