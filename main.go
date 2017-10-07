@@ -2,16 +2,29 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
+	"github.com/joho/godotenv"
 	"github.com/nlopes/slack"
 )
 
+func Env_load() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+}
+
 func main() {
-	token := os.Getenv("SLACK_TOKEN")
+	Env_load()
+
+	token := os.Getenv("TOKEN")
 	api := slack.New(token)
-	rtm := api.NetRTM()
+	rtm := api.NewRTM()
 	go rtm.ManageConnection()
+
+	fmt.Println("--- start connection ---")
 
 Loop:
 	for {
