@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"strings"
 
 	"github.com/yutaro/slack-cmd-go"
@@ -26,7 +27,7 @@ func main() {
 			options := c.GetOptions()
 			mes := strings.Join(args, " ")
 
-			//tpe := templates["text"]
+			tpe := templates["text"]
 
 			prints := []string{mes}
 
@@ -35,8 +36,10 @@ func main() {
 				prints = append(prints, url)
 			}
 
-			//csvpath := writeCsv(prints)
-			writeCsv(prints)
+			csvpath := writeCsv(prints)
+
+			fmt.Println(csvpath, tpe)
+
 			//cmd := exec.Command("sleep", "5s")
 			//cmd.Start()
 			//cmd.Wait()
