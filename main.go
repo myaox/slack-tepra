@@ -27,18 +27,21 @@ func main() {
 			options := c.GetOptions()
 			mes := strings.Join(args, " ")
 
-			tpe := templates["text"]
+			tpe := "text"
 
 			prints := []string{mes}
 
 			if qr, ok := options["qr"]; ok {
 				url := urlConv(qr)
 				prints = append(prints, url)
+				tpe = "text_qr"
 			}
 
 			csvpath := writeCsv(prints)
 
-			fmt.Println(csvpath, tpe)
+			tpepath := tpePath(tpe)
+
+			fmt.Println(csvpath, tpepath)
 
 			//cmd := exec.Command("sleep", "5s")
 			//cmd.Start()
