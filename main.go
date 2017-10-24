@@ -3,7 +3,6 @@ package main
 import (
 	"os/exec"
 	"strings"
-	"time"
 
 	"github.com/yutaro/slack-cmd-go"
 )
@@ -13,6 +12,9 @@ var (
 		"text":    "text.tpe",
 		"text-qr": "text-qr.tpe",
 	}
+
+	imgpath = imgPath("result")
+	csvpath = csvPath("value.csv")
 )
 
 var exepath = "C:/Program Files (x86)/KING JIM/TEPRA SPC10/SPC10.exe"
@@ -22,13 +24,10 @@ func main() {
 	bot := scmd.New(conf.TOKEN)
 	tepra := bot.NewCmdGroup("tepra")
 
-	imgpath := imgPath("result")
-
 	tepra.Cmd("print", []string{"print message"},
 		func(c *scmd.Context) {
 			args := c.GetArgs()
 			options := c.GetOptions()
-			flags := c.GetFlags()
 			mes := strings.Join(args, " ")
 
 			tpe := "text"
@@ -41,23 +40,8 @@ func main() {
 				tpe = "text_qr"
 			}
 
-			csvpath := writeCsv(prints)
-			tpepath := tpePath(tpe)
-
-			n := "1"
-			if num, ok := options["n"]; ok {
-				n = num
-			}
-
-			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n+", /B -a "+imgpath)
-			cmd.Run()
-
-			if flags["t"] {
-				go func() {
-					time.Sleep(time.Second)
-					c.SendFile(imgpath + "1.bmp")
-				}()
-			}
+			writeCsv(prints)
+			print(c, tpePath(tpe))
 
 			c.SendMessage(mes)
 		})
