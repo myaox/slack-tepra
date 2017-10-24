@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os/exec"
 	"strings"
 
@@ -41,8 +40,6 @@ func main() {
 			csvpath := writeCsv(prints)
 			tpepath := tpePath(tpe)
 
-			fmt.Println(csvpath, tpepath)
-
 			n := "1"
 			if num, ok := c.GetOptions()["n"]; ok {
 				n = num
@@ -64,6 +61,19 @@ func main() {
 
 			qr := args[0]
 			url := urlConv(qr)
+
+			prints := []string{url}
+
+			csvpath := writeCsv(prints)
+			tpepath := tpePath("qr")
+
+			n := "1"
+			if num, ok := c.GetOptions()["n"]; ok {
+				n = num
+			}
+
+			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n)
+			cmd.Run()
 
 			c.SendMessage(url)
 		})
