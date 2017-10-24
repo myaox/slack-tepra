@@ -3,6 +3,7 @@ package main
 import (
 	"os/exec"
 	"strings"
+	"time"
 
 	"github.com/yutaro/slack-cmd-go"
 )
@@ -48,12 +49,14 @@ func main() {
 				n = num
 			}
 
-			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n, "-B", "-a "+imgpath)
+			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n+", /B -a "+imgpath)
 			cmd.Run()
-			//cmd.Wait()
 
 			if flags["t"] {
-				c.SendFile(imgpath)
+				go func() {
+					time.Sleep(time.Second)
+					c.SendFile(imgpath + "1.bmp")
+				}()
 			}
 
 			c.SendMessage(mes)

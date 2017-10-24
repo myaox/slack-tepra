@@ -7,5 +7,5 @@ func tpePath(name string) string {
 }
 
 func imgPath(name string) string {
-	return filepath.Join(getCurPath(), "./image/"+name+".bmp")
+	return filepath.Join(getCurPath(), "./image/"+name)
 }
