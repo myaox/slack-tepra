@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os/exec"
 	"strings"
 
 	"github.com/yutaro/slack-cmd-go"
@@ -14,7 +15,7 @@ var (
 	}
 )
 
-var exePath = "C:/Program Files (x86)/KING JIM/TEPRA SPC10/SPC10.exe"
+var exepath = "C:/Program Files (x86)/KING JIM/TEPRA SPC10/SPC10.exe"
 
 func main() {
 	conf := scmd.LoadToml("config.toml")
@@ -38,13 +39,17 @@ func main() {
 			}
 
 			csvpath := writeCsv(prints)
-
 			tpepath := tpePath(tpe)
 
 			fmt.Println(csvpath, tpepath)
 
-			//cmd := exec.Command("sleep", "5s")
-			//cmd.Start()
+			n := "1"
+			if num, ok := c.GetOptions()["n"]; ok {
+				n = num
+			}
+
+			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n)
+			cmd.Run()
 			//cmd.Wait()
 
 			c.SendMessage(mes)
