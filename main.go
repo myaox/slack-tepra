@@ -21,10 +21,13 @@ func main() {
 	bot := scmd.New(conf.TOKEN)
 	tepra := bot.NewCmdGroup("tepra")
 
+	imgpath := imgPath("result")
+
 	tepra.Cmd("print", []string{"print message"},
 		func(c *scmd.Context) {
 			args := c.GetArgs()
 			options := c.GetOptions()
+			flags := c.GetFlags()
 			mes := strings.Join(args, " ")
 
 			tpe := "text"
@@ -41,13 +44,17 @@ func main() {
 			tpepath := tpePath(tpe)
 
 			n := "1"
-			if num, ok := c.GetOptions()["n"]; ok {
+			if num, ok := options["n"]; ok {
 				n = num
 			}
 
-			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n)
+			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n, "-B", "-a "+imgpath)
 			cmd.Run()
 			//cmd.Wait()
+
+			if flags["t"] {
+				c.SendFile(imgpath)
+			}
 
 			c.SendMessage(mes)
 		})
