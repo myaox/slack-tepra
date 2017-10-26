@@ -8,15 +8,11 @@ import (
 )
 
 var (
-	templates = map[string]string{
-		"text":    "text.tpe",
-		"text-qr": "text-qr.tpe",
-	}
-
 	imgpath = imgPath("result")
 	csvpath = csvPath("value.csv")
 )
 
+// TODO : 大体ここにあると思うけど別のケースも想定する挙動を書いたほうがいいかも
 var exepath = "C:/Program Files (x86)/KING JIM/TEPRA SPC10/SPC10.exe"
 
 func main() {
