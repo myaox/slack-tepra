@@ -20,7 +20,12 @@ func main() {
 	bot := scmd.New(conf.TOKEN)
 	tepra := bot.NewCmdGroup("tepra")
 
-	tepra.Cmd("print", []string{"print message", "-n=x  x枚印刷します", "--qr=URL  URLに接続するQRコードを左側に印刷", "-t   印刷せずテスト画像を表示"},
+	tepra.Cmd("print",
+		[]string{
+			"print message",
+			"-n=x  x枚印刷します",
+			"--qr=URL  URLに接続するQRコードを左側に印刷",
+			"-t   印刷せずテスト画像を表示"},
 		func(c *scmd.Context) {
 			args := c.GetArgs()
 			options := c.GetOptions()
