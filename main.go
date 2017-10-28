@@ -85,9 +85,9 @@ func main() {
 			c.SendMessage(url)
 		})
 
-	tepra.Cmd("image", []string{"print image"},
+	tepra.Cmd("image", []string{"print image", "don't work now..."},
 		func(c *scmd.Context) {
-
+			c.SendMessage("preparing now...")
 		})
 
 	tepra.Cmd("status", []string{"check status"},
