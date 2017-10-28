@@ -8,12 +8,11 @@ import (
 )
 
 var (
-	templates = map[string]string{
-		"text":    "text.tpe",
-		"text-qr": "text-qr.tpe",
-	}
+	imgpath = imgPath("result")
+	csvpath = csvPath("value.csv")
 )
 
+// TODO : 大体ここにあると思うけど別のケースも想定する挙動を書いたほうがいいかも
 var exepath = "C:/Program Files (x86)/KING JIM/TEPRA SPC10/SPC10.exe"
 
 func main() {
@@ -21,13 +20,17 @@ func main() {
 	bot := scmd.New(conf.TOKEN)
 	tepra := bot.NewCmdGroup("tepra")
 
-	imgpath := imgPath("result")
-
-	tepra.Cmd("print", []string{"print message"},
+	tepra.Cmd("print",
+		[]string{
+			"print message",
+			"-n=x  x枚印刷します",
+			"--qr=URL  URLに接続するQRコードを左側に印刷",
+			"-t   印刷せずテスト画像を表示"},
 		func(c *scmd.Context) {
 			args := c.GetArgs()
 			options := c.GetOptions()
 			flags := c.GetFlags()
+
 			mes := strings.Join(args, " ")
 
 			tpe := "text"
@@ -38,25 +41,23 @@ func main() {
 				url := urlConv(qr)
 				prints = append(prints, url)
 				tpe = "text_qr"
+
+				c.SendMessage("qrcode : " + url)
 			}
 
-			csvpath := writeCsv(prints)
-			tpepath := tpePath(tpe)
+			writeCsv(prints)
+			print(c, tpePath(tpe))
 
-			n := "1"
-			if num, ok := options["n"]; ok {
-				n = num
+			c.SendMessage("text     : " + mes)
+
+			reply := ""
+			if !flags["t"] {
+				reply += "印刷しています..."
+			} else {
+				reply += "テスト画像を表示します..."
 			}
 
-			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n, "-B", "-a "+imgpath)
-			cmd.Run()
-			//cmd.Wait()
-
-			if flags["t"] {
-				c.SendFile(imgpath)
-			}
-
-			c.SendMessage(mes)
+			c.SendMessage(reply)
 		})
 
 	tepra.Cmd("qrcode", []string{"print only qrcode"},
