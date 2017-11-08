@@ -4,7 +4,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
-	"runtime"
 	"strings"
 
 	"golang.org/x/text/encoding/japanese"
@@ -24,8 +23,8 @@ func csvPath(name string) string {
 }
 
 func getCurPath() string {
-	_, filename, _, _ := runtime.Caller(1)
-	return path.Dir(filename)
+	dir, _ := os.Getwd()
+	return dir
 }
 
 func writeCsv(args []string) string {

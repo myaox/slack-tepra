@@ -1,7 +1,6 @@
 package main
 
 import (
-	"os/exec"
 	"strings"
 
 	"github.com/yutaro/slack-cmd-go"
@@ -72,16 +71,10 @@ func main() {
 
 			prints := []string{url}
 
-			csvpath := writeCsv(prints)
 			tpepath := tpePath("qr")
 
-			n := "1"
-			if num, ok := c.GetOptions()["n"]; ok {
-				n = num
-			}
-
-			cmd := exec.Command(exepath, "-p", tpepath+","+csvpath+","+n)
-			cmd.Run()
+			writeCsv(prints)
+			print(c, tpepath)
 
 			c.SendMessage(url)
 		})
