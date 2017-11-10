@@ -8,7 +8,7 @@
 
 - slackをCLI化するライブラリ |
   - テプラとCLI化する部分を分離した |
-  <https://github.com/yutaro/slack-tepra> |
+  <https://github.com/yutaro/slack-tepra>
 - 結果 : TepraBotを比較的綺麗に書きなおせた! |
 
 ---
@@ -112,8 +112,49 @@ func(c *scmd.Context){
 ## LabelWriter 450 Turbo
 
 - 買っていただいたので色々試したい
-- Linux環境で動くらしい
-- 
+- Linux環境で動くらしい |
+- UbuntuノートPC環境があるので、それで色々できるかテスト|
+- <https://github.com/dsandor/dymojs> |
+- 良さげなライブラリ |
+
++++
+
+### 見た目
 
 ![dymo](https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/SALM450TUR_dymo_dymo_labelwriter_450_turbo_label_printer_silver.jpg)
+
+---
+
+## Slash Commandsを試す
+
+```sh
+/command aaaa aaa aaa
+```
+
+- というような形式のコマンド
+- Webサーバーにリクエストを送るようなものらしい
+- Linux環境ならそれでWebサーバー立てたほうがいいかも？
+
++++
+
+## いいところ
+
+- 補完が効く
+  - /co ぐらいで候補が表示される
+- エンドポイントを作るだけなので実装が楽（たぶん）
+- 便利なライブラリとかがありそう... |
+  <https://botkit.ai/>
+  <http://starzero.hatenablog.com/entry/2016/02/07/000128>
+- そんなに難しくなさそう |
+
+---
+
+見つけた良さげなライブラリがどっちもnodejs  
+nodejsのslack commandsを受け取るエンドポイントを作る
+
+---
+
+# 課題
+
+
 
