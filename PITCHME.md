@@ -89,4 +89,16 @@ func(c *scmd.Context){
 
 ---
 
-## 
+## TepraBotのアップデート内容
+
+- -n=10 10枚印刷 |
+- -t オプションで印刷せずにテスト画像を表示 |
+- --qr=url qrコードを左側に印刷 |
+- tepra qr url で qrコードのみを印刷 |
+
++++
+
+### サンプル画像
+![cable](./imgs/cable.bmp)
+![wellcome](./imgs/wellcome.bmp)
+![qr](./imgs/qr.bmp)
