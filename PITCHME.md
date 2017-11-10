@@ -19,12 +19,17 @@
 使い勝手はそのままにしたい
 
 ```sh
-tepra print Hello world
+tepra print Hello World
 ```
 
 ---
 
+## CLI化ライブラリに
 ## コマンドラインオプションを実装
+
+---
+
+## flag
 
 ```sh
 tepra print -ta --flag --something
@@ -54,7 +59,7 @@ func(c *scmd.Context) {
 
 ---
 
-## 値も渡せるようにした
+## option
 
 ```sh
 tepra print -n=10 --qr=google.com
@@ -64,6 +69,8 @@ n = "10", qr = "google.com" の状態で実行される
 (string型で渡される)
 
 +++
+
+### 使い方
 
 ```go
 func(c *scmd.Context){
@@ -80,4 +87,6 @@ func(c *scmd.Context){
 }
 ```
 
+---
 
+## 
