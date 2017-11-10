@@ -114,12 +114,12 @@ func(c *scmd.Context){
 - 買っていただいたので色々試したい
 - Linux環境で動くらしい |
 - UbuntuノートPC環境があるので、それで色々できるかテスト|
-- <https://github.com/dsandor/dymojs> |
-- 良さげなライブラリ |
+
+<https://github.com/dsandor/dymojs> |
 
 +++
 
-### 見た目
+##### 見た目
 
 ![dymo](https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/SALM450TUR_dymo_dymo_labelwriter_450_turbo_label_printer_silver.jpg)
 
@@ -142,8 +142,10 @@ func(c *scmd.Context){
 - 補完が効く
   - /co ぐらいで候補が表示される
 - 便利なライブラリとかがありそう... |
-<https://botkit.ai/> |
+
+<https://botkit.ai/>   
 <http://starzero.hatenablog.com/entry/2016/02/07/000128> |
+
 - そんなに難しくなさそう |
 
 ---
@@ -153,12 +155,9 @@ nodejsで実装できそうなので試してみる
 
 ---
 
-# 課題
+### 現状の課題
 
-- 簡単に文字が印刷できて便利以上の価値が見出せていない
-- ラベルを印刷する機会ってそんなに多くないんじゃないか
+- ラベルを印刷する機会は限られている |
+- slackから印刷できることが 効果的なユースケースの開拓 |
 
-- こんなラベルが印刷できたら便利かも
-- ラベルの意味が大きい場面について考える必要
-
-
+- slackとの連携
