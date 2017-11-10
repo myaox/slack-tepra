@@ -8,7 +8,7 @@
 
 - slackをCLI化するライブラリ |
   - テプラとCLI化する部分を分離した |
-  - <https://github.com/yutaro/slack-tepra> |
+  <https://github.com/yutaro/slack-tepra> |
 - 結果 : TepraBotを比較的綺麗に書きなおせた! |
 
 ---
@@ -102,3 +102,18 @@ func(c *scmd.Context){
 ![cable](./imgs/cable.bmp)
 ![wellcome](./imgs/wellcome.bmp)
 ![qr](./imgs/qr.bmp)
+
+
+---
+
+# これから
+
+---
+## LabelWriter 450 Turbo
+
+- 買っていただいたので色々試したい
+- Linux環境で動くらしい
+- 
+
+![dymo](https://s3-ap-southeast-2.amazonaws.com/wc-prod-pim/JPEG_1000x1000/SALM450TUR_dymo_dymo_labelwriter_450_turbo_label_printer_silver.jpg)
+
