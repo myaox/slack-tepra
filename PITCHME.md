@@ -15,7 +15,8 @@
 
 ## TepraBotの機能を増やしたい!
 
-シンプルなユースケースでの使い勝手はそのままにしたい
+シンプルなユースケースの  
+使い勝手はそのままにしたい
 
 ```sh
 tepra print Hello world
@@ -29,7 +30,9 @@ tepra print Hello world
 tepra print -ta --flag --something
 ```
 
-[t, a, flag, something]のフラグがtrueになるようにした  
+[t, a, flag, something] 
+フラグがtrueにで実行される  
+(デフォルトはfalse)
 
 +++
 
@@ -57,7 +60,7 @@ func(c *scmd.Context) {
 tepra print -n=10 --qr=google.com
 ```
 
-n = "10", qr = "google.com" の状態で実行される。  
+n = "10", qr = "google.com" の状態で実行される
 (string型で渡される)
 
 +++
