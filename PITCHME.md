@@ -106,6 +106,14 @@ func(c *scmd.Context){
 
 ---
 
+### Version 0.0.1としてバイナリファイルを配布
+
+<https://github.com/yutaro/slack-tepra>
+<https://github.com/yutaro/slack-tepra/releases/tag/v0.0.1>
+
+
+---
+
 # これから
 
 ---
