@@ -117,13 +117,14 @@ func(c *scmd.Context){
 # これから
 
 ---
+
 ## LabelWriter 450 Turbo
 
 - 買っていただいたので色々試したい
 - Linux環境で動くらしい |
 - UbuntuノートPC環境があるので、それで色々できるかテスト|
 
-<https://github.com/dsandor/dymojs> |
+<https://github.com/dsandor/dymojs>
 
 +++
 
@@ -173,5 +174,5 @@ nodejsで実装できそうなので試してみる
 
 ---
 
-# アイディア中！
+# アイディア募集中
 # 終わり
