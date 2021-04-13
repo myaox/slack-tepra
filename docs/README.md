@@ -19,5 +19,5 @@ Hello World
 
 ### 作った人
 
-* Github  : [myaox](https://github.com/yutaro)
-* Twitter : [@MYAOX3](https://twitter.com/MYAOX3)  
+* Github  : [yutaro](https://github.com/yutaro)
+* Twitter : [@yutaroboy](https://twitter.com/yutaroboy) 
